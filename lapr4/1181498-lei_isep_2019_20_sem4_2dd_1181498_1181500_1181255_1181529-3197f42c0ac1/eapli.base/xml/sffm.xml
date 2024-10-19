@@ -1,0 +1,265 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+
+
+<sffm xmlns="http://www.dei.isep.ipp.pt/lprog/sffm"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation	="http://www.dei.isep.ipp.pt/lprog/sffm sffm.xsd"	
+	>
+
+	<materialCategories>
+		<materialCategory code="CAT1">
+			<categoryDescription>Category1</categoryDescription>
+		</materialCategory>
+		<materialCategory code="CAT2">
+			<categoryDescription>Category2</categoryDescription>
+		</materialCategory>
+	</materialCategories>
+
+	<productCategories>
+		<productCategory>PA-MR</productCategory>
+		<productCategory>SA-BL</productCategory>
+		<productCategory>SA-FP</productCategory>
+		<productCategory>PA-JC</productCategory>
+		<productCategory>SA-CC</productCategory>
+		<productCategory>PA-VN</productCategory>
+		<productCategory>PA-JD</productCategory>
+		<productCategory>PA-RL</productCategory>
+		<productCategory>PA-RG</productCategory>
+		<productCategory>PA-JA</productCategory>
+		<productCategory>ME-GR</productCategory>
+		<productCategory>CAT2</productCategory>
+		<productCategory>PA-FP</productCategory>
+		<productCategory>CAT1</productCategory>
+		<productCategory>Metais</productCategory>
+		<productCategory>MP-GD</productCategory>
+		<productCategory>PA-BR</productCategory>
+		<productCategory>PA-FR</productCategory>
+		<productCategory>SA-RM</productCategory>
+		<productCategory>SA-JD</productCategory>
+		<productCategory>MP-GR</productCategory>
+		<productCategory>SA-JC</productCategory>
+		<productCategory>PA-OP</productCategory>
+		<productCategory>SA-VN</productCategory>
+		<productCategory>PA-CC</productCategory>
+		<productCategory>PA-OR</productCategory>
+		<productCategory>MP-TC</productCategory>
+		<productCategory>SA-RF</productCategory>
+		<productCategory>PA-CA</productCategory>
+		<productCategory>SA-DS</productCategory>
+		<productCategory>PA-GR</productCategory>
+		<productCategory>SA-DM</productCategory>
+		<productCategory>PA-OU</productCategory>
+		<productCategory>PA-CR</productCategory>
+		<productCategory>ME-RL</productCategory>
+		<productCategory>ME-AP</productCategory>
+		<productCategory>MP-OC</productCategory>
+		<productCategory>ME-AN</productCategory>
+		<productCategory>PA-TR</productCategory>
+		<productCategory>SA-CR</productCategory>
+		<productCategory>SA-GS</productCategory>
+		<productCategory>PA-HM</productCategory>
+		<productCategory>ME-CC</productCategory>
+		<productCategory>SA-CI</productCategory>
+		<productCategory>ME-GI</productCategory>
+		<productCategory>SA-GI</productCategory>
+		<productCategory>PA-DS</productCategory>
+		<productCategory>SA-GH</productCategory>
+		<productCategory>PA-DR</productCategory>
+		<productCategory>SA-PO</productCategory>
+		<productCategory>SA-TR</productCategory>
+		<productCategory>SA-PL</productCategory>
+		<productCategory>ME-BR</productCategory>
+		<productCategory>ME-OA</productCategory>
+		<productCategory>MP-AP</productCategory>
+	</productCategories>
+
+	<materialCatalog>
+		<materials>
+			<material>
+				<materialCode code="A1220321">
+					<materialName>Pregos</materialName>
+				</materialCode>
+				<materialCategoryCode>A112</materialCategoryCode>
+				<technicalFile>
+					<fileName>File1.txt</fileName>
+					<filePath>filepath.xml</filePath>
+				</technicalFile>
+				<rawMaterial name="Pregos">
+					<unit>UN</unit>
+				</rawMaterial>
+			</material>
+		</materials>
+	</materialCatalog>
+
+	<productCatalog>
+		<products>
+			<product>
+				<productCode>
+					<manufacturingCode>0007</manufacturingCode>
+					<commercialCode>00007</commercialCode>
+				</productCode>
+				<productDescription>
+					<briefDescription>"Pregos"</briefDescription>
+					<completeDescription>"Pregos"</completeDescription>
+				</productDescription>
+				<productCategory>A2-5A</productCategory>
+				<rawMaterial name="Pregos">
+					<unit>UN</unit>
+				</rawMaterial>
+			</product>
+		</products>
+	</productCatalog>
+
+	<billsOfMaterials>
+		<billOfMaterials>
+			<issueDate>2020-06-11 13:40:37</issueDate>
+			<finishedProduct>
+				<productCode>
+					<manufacturingCode>0007</manufacturingCode>
+					<commercialCode>00007</commercialCode>
+				</productCode>
+				<productDescription>
+					<briefDescription>"Pregos"</briefDescription>
+					<completeDescription>"Pregos"</completeDescription>
+				</productDescription>
+				<productCategory>Pregos A2</productCategory>
+				<rawMaterial name="Pregos">
+					<unit>UN</unit>
+				</rawMaterial>
+			</finishedProduct>
+			<listOfMaterials>
+				<measuredRawMaterial quantity="50">
+					<rawMaterial name="Pregos">
+						<unit>UN</unit>
+					</rawMaterial>
+				</measuredRawMaterial>
+			</listOfMaterials>
+		</billOfMaterials>
+	</billsOfMaterials>
+
+
+	<productionOrders>
+		<productionOrder code="A4">
+			<materialsConsumed>
+				<materialConsumed quantity="50">
+					<rawMaterial name="Pregos">
+						<unit>UN</unit>
+					</rawMaterial>
+				</materialConsumed>
+			</materialsConsumed>
+			<productionOrderSchedule>
+				<expectedStartOfExecution>2020-06-05 16:30</expectedStartOfExecution>
+				<realStartOfExecution>2020-06-05 16:32</realStartOfExecution>
+				<endExecution>2020-06-05 17:02</endExecution>
+				<grossExecutionTime>30</grossExecutionTime>
+				<effectiveExecutionTime>25</effectiveExecutionTime>
+			</productionOrderSchedule>
+			<productionOrderStatus>Pending</productionOrderStatus>
+			<productResult quantity="20">
+				<product>
+					<productCode>
+						<manufacturingCode>0007</manufacturingCode>
+						<commercialCode>00007</commercialCode>
+					</productCode>
+					<productDescription>
+						<briefDescription>"Pregos"</briefDescription>
+						<completeDescription>"Pregos"</completeDescription>
+					</productDescription>
+					<productCategory>Pregos A2</productCategory>
+					<rawMaterial name="Pregos">
+						<unit>UN</unit>
+					</rawMaterial>
+				</product>
+			</productResult>
+			<issueDate>2020-06-05 14:30</issueDate>
+			<associatedCommissions>
+				<commission>E230</commission>
+				<commission>E204</commission>
+			</associatedCommissions>
+		</productionOrder>
+	</productionOrders>
+
+	<productionLines>
+		<productionLine id="A081">
+			<machines>
+				<machine serialNumber="A77777">
+					<machineModel name="A7">
+						<description>Maquina cortadora</description>
+						<machineBrand>Toyota</machineBrand>
+					</machineModel>
+				</machine>
+			</machines>
+			<associatedProductionOrder code="A4">
+				<materialsConsumed>
+						<materialConsumed quantity="50">
+							<rawMaterial name="Pregos">
+								<unit>UN</unit>
+							</rawMaterial>
+						</materialConsumed>
+				</materialsConsumed>
+				<productionOrderSchedule>
+					<expectedStartOfExecution>2020-06-05 16:30</expectedStartOfExecution>
+					<realStartOfExecution>2020-06-05 16:32</realStartOfExecution>
+					<endExecution>2020-06-05 17:02</endExecution>
+					<grossExecutionTime>30</grossExecutionTime>
+					<effectiveExecutionTime>25</effectiveExecutionTime>
+				</productionOrderSchedule>
+				<productionOrderStatus>Pending</productionOrderStatus>
+				<productResult quantity="20">
+					<product>
+						<productCode>
+							<manufacturingCode>0007</manufacturingCode>
+							<commercialCode>00007</commercialCode>
+						</productCode>
+						<productDescription>
+							<briefDescription>"Pregos"</briefDescription>
+							<completeDescription>"Pregos"</completeDescription>
+						</productDescription>
+						<productCategory>Pregos A2</productCategory>
+						<rawMaterial name="Pregos">
+							<unit>UN</unit>
+						</rawMaterial>
+					</product>
+				</productResult>
+				<issueDate>2020-06-05 15:30</issueDate>
+				<associatedCommissions>
+					<commission>E502</commission>
+					<commission>E505</commission>
+				</associatedCommissions>
+			</associatedProductionOrder>
+		</productionLine>
+	</productionLines>
+
+	<storageAreas>
+		<storageArea>
+			<storageAreaDescription>Storage Area 1</storageAreaDescription>
+			<batches>
+				<batch batchCode="001">
+					<creationDateTime>2020-06-05 16:30</creationDateTime>
+					<measuredRawMaterial quantity="50">
+						<rawMaterial name="Pregos">
+							<unit>UN</unit>
+						</rawMaterial>
+					</measuredRawMaterial>
+				</batch>
+			</batches>
+		</storageArea>
+	</storageAreas>
+	<stockMovements>
+		<stockMovement direction="IN">
+			<movementDateTime>2020-06-05 16:30</movementDateTime>
+			<storageAreaDescription>Storage Area 2</storageAreaDescription>
+			<batches>
+				<batch batchCode="AAA">
+					<creationDateTime>2020-06-05 16:30</creationDateTime>
+					<measuredRawMaterial quantity="50">
+						<rawMaterial name="Pregos">
+							<unit>UN</unit>
+						</rawMaterial>
+					</measuredRawMaterial>
+				</batch>
+			</batches>
+		</stockMovement>
+	</stockMovements>
+</sffm>

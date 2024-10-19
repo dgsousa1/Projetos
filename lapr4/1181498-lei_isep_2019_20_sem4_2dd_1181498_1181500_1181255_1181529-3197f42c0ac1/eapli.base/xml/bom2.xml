@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sffm xmlns="http://www.dei.isep.ipp.pt/lprog/sffm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dei.isep.ipp.pt/lprog/sffm sffm.xsd">
+  <billsOfMaterials>
+    <billOfMaterials>
+      <issueDate>2020-06-11 13:40:37</issueDate>
+      <finishedProduct>
+        <productCode>
+          <manufacturingCode>1111</manufacturingCode>
+          <commercialCode>2222</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Product1</briefDescription>
+          <completeDescription>First Product</completeDescription>
+        </productDescription>
+        <productCategory>CAT1</productCategory>
+        <rawMaterial name="Product1">
+          <unit>UN</unit>
+        </rawMaterial>
+      </finishedProduct>
+      <listOfMaterials>
+        <measuredRawMaterial quantity="20.0">
+          <rawMaterial name="Product1">
+            <unit>UN</unit>
+          </rawMaterial>
+        </measuredRawMaterial>
+        <measuredRawMaterial quantity="20.0">
+          <rawMaterial name="Material2">
+            <unit>UN</unit>
+          </rawMaterial>
+        </measuredRawMaterial>
+      </listOfMaterials>
+    </billOfMaterials>
+    <billOfMaterials>
+      <issueDate>2020-06-11 13:40:53</issueDate>
+      <finishedProduct>
+        <productCode>
+          <manufacturingCode>4444</manufacturingCode>
+          <commercialCode>4444</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Titanium</briefDescription>
+          <completeDescription>Titanium alloy</completeDescription>
+        </productDescription>
+        <productCategory>TI1</productCategory>
+        <rawMaterial name="Titanium">
+          <unit>UN</unit>
+        </rawMaterial>
+      </finishedProduct>
+      <listOfMaterials>
+        <measuredRawMaterial quantity="2000.0">
+          <rawMaterial name="Aluminum">
+            <unit>UN</unit>
+          </rawMaterial>
+        </measuredRawMaterial>
+      </listOfMaterials>
+    </billOfMaterials>
+    <billOfMaterials>
+      <issueDate>2020-06-11 13:41:10</issueDate>
+      <finishedProduct>
+        <productCode>
+          <manufacturingCode>3333</manufacturingCode>
+          <commercialCode>3333</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Aluminum</briefDescription>
+          <completeDescription>Aluminum Foil</completeDescription>
+        </productDescription>
+        <productCategory>MAT1</productCategory>
+        <rawMaterial name="Aluminum">
+          <unit>UN</unit>
+        </rawMaterial>
+      </finishedProduct>
+      <listOfMaterials>
+        <measuredRawMaterial quantity="3.0">
+          <rawMaterial name="Product1">
+            <unit>UN</unit>
+          </rawMaterial>
+        </measuredRawMaterial>
+      </listOfMaterials>
+    </billOfMaterials>
+  </billsOfMaterials>
+</sffm>

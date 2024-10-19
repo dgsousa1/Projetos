@@ -1,0 +1,506 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.dei.isep.ipp.pt/lprog/sffm" targetNamespace="http://www.dei.isep.ipp.pt/lprog/sffm" elementFormDefault="qualified">
+	<xs:element name="sffm" type="sffmType">
+		<xs:key name="productCategory_key">
+			<xs:selector xpath="./productCategories"/>
+			<xs:field xpath="productCategory"/>
+		</xs:key>
+		<xs:keyref name="productCategory_ref" refer="productCategory_key">
+			<xs:selector xpath="./productCatalog/products/product"/>
+			<xs:field xpath="productCategory"/>
+		</xs:keyref>
+		<xs:key name="materialCategory_key">
+			<xs:selector xpath="./materialCategories/materialCategory"/>
+			<xs:field xpath="@code"/>
+		</xs:key>
+		<xs:keyref name="materialCategory_ref" refer="materialCategory_key">
+			<xs:selector xpath="./materialCatalogType/materials/material"/>
+			<xs:field xpath="materialCategoryCode"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:complexType name="sffmType">
+		<xs:sequence>
+			<xs:element name="materialCategories" type="materialCategoriesType" minOccurs="0"/>
+			<xs:element name="productCategories" type="productCategoriesType" minOccurs="0"/>
+			<xs:element name="materialCatalog" type="materialCatalogType" minOccurs="0"/>
+			<xs:element name="productCatalog" type="productCatalogType" minOccurs="0"/>
+			<xs:element name="billsOfMaterials" type="billsOfMaterialsType" minOccurs="0"/>
+			<xs:element name="productionOrders" type="productionOrdersType" minOccurs="0"/>
+			<xs:element name="productionLines" type="productionLinesType" minOccurs="0"/>
+			<xs:element name="storageAreas" type="storageAreasType" minOccurs="0"/>
+			<xs:element name="stockMovements" type="stockMovementsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialCategoriesType">
+		<xs:sequence>
+			<xs:element name="materialCategory" type="materialCategoryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productCategoriesType">
+		<xs:sequence>
+			<xs:element name="productCategory" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialCatalogType">
+		<xs:sequence>
+			<xs:element name="materials" type="materialsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productCatalogType">
+		<xs:sequence>
+			<xs:element name="products" type="productsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="billsOfMaterialsType">
+		<xs:sequence>
+			<xs:element name="billOfMaterials" type="billOfMaterialsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productionOrdersType">
+		<xs:sequence>
+			<xs:element name="productionOrder" type="productionOrderType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productionLinesType">
+		<xs:sequence>
+			<xs:element name="productionLine" type="productionLineType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="storageAreasType">
+		<xs:sequence>
+			<xs:element name="storageArea" type="storageAreaType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="stockMovementsType">
+		<xs:sequence>
+			<xs:element name="stockMovement" type="stockMovementType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####MATERIAL#### -->
+	<xs:complexType name="materialCategoryType">
+		<xs:sequence>
+			<xs:element name="categoryDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="code" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="10"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="materialCodeType">
+		<xs:sequence>
+			<xs:element name="materialName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="code" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="technicalFileType">
+		<xs:sequence>
+			<xs:element name="fileName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="filePath">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialType">
+		<xs:sequence>
+			<xs:element name="materialCode" type="materialCodeType"/>
+			<xs:element name="materialCategoryCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="technicalFile" type="technicalFileType"/>
+			<xs:element name="rawMaterial" type="rawMaterialType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialsType">
+		<xs:sequence>
+			<xs:element name="material" type="materialType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####BILL OF MATERIALS#### -->
+	<xs:complexType name="billOfMaterialsType">
+		<xs:sequence>
+			<xs:element name="issueDate">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="finishedProduct" type="productType"/>
+			<xs:element name="listOfMaterials" type="listOfRawMaterialsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####RAW MATERIAL#### -->
+	<xs:complexType name="rawMaterialType">
+		<xs:sequence>
+			<xs:element name="unit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="KG"/>
+						<xs:enumeration value="M"/>
+						<xs:enumeration value="L"/>
+						<xs:enumeration value="UN"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="measuredRawMaterialType">
+		<xs:sequence>
+			<xs:element name="rawMaterial" type="rawMaterialType"/>
+		</xs:sequence>
+		<xs:attribute name="quantity" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:float">
+					<xs:minExclusive value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="listOfRawMaterialsType">
+		<xs:sequence>
+			<xs:element name="measuredRawMaterial" type="measuredRawMaterialType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialConsumedType">
+		<xs:sequence>
+			<xs:element name="measuredRawMaterial" type="measuredRawMaterialType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="materialsConsumedType">
+		<xs:sequence>
+			<xs:element name="materialConsumed" type="measuredRawMaterialType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####PRODUCT#### -->
+	<xs:complexType name="productCodeType">
+		<xs:sequence>
+			<xs:element name="manufacturingCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="commercialCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productDescriptionType">
+		<xs:sequence>
+			<xs:element name="briefDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="completeDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productType">
+		<xs:sequence>
+			<xs:element name="productCode" type="productCodeType"/>
+			<xs:element name="productDescription" type="productDescriptionType"/>
+			<xs:element name="productCategory">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="rawMaterial" type="rawMaterialType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productsType">
+		<xs:sequence>
+			<xs:element name="product" type="productType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="measuredProductType">
+		<xs:sequence>
+			<xs:element name="product" type="productType"/>
+		</xs:sequence>
+		<xs:attribute name="quantity" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:float">
+					<xs:minExclusive value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- #####MACHINE#### -->
+	<xs:complexType name="machineModelType">
+		<xs:sequence>
+			<xs:element name="description">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="machineBrand">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="machineType">
+		<xs:sequence>
+			<xs:element name="machineModel" type="machineModelType"/>
+		</xs:sequence>
+		<xs:attribute name="serialNumber" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="machinesType">
+		<xs:sequence>
+			<xs:element name="machine" type="machineType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####PRODUCTION ORDER#### -->
+	<xs:complexType name="productionOrderScheduleType">
+		<xs:sequence>
+			<xs:element name="expectedStartOfExecution">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="realStartOfExecution" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="endExecution" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="grossExecutionTime" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="effectiveExecutionTime" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="productionOrderType">
+		<xs:sequence>
+			<xs:element name="materialsConsumed" type="materialsConsumedType" minOccurs="0"/>
+			<xs:element name="productionOrderSchedule" type="productionOrderScheduleType"/>
+			<xs:element name="productionOrderStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pending"/>
+						<xs:enumeration value="InExecution"/>
+						<xs:enumeration value="PendingExecution"/>
+						<xs:enumeration value="Suspended"/>
+						<xs:enumeration value="Finished"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="productResult" type="measuredProductType"/>
+			<xs:element name="issueDate">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="associatedCommissions" type="associatedCommissionsType" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="code" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="associatedCommissionsType">
+		<xs:sequence>
+			<xs:element name="commission" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####PRODUCTION LINE#### -->
+	<xs:complexType name="productionLineType">
+		<xs:sequence>
+			<xs:element name="machines" type="machinesType"/>
+			<xs:element name="associatedProductionOrder" type="productionOrderType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<!-- #####BATCH#### -->
+	<xs:complexType name="batchType">
+		<xs:sequence>
+			<xs:element name="creationDateTime">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="measuredRawMaterial" type="measuredRawMaterialType"/>
+		</xs:sequence>
+		<xs:attribute name="batchCode" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="batchesType">
+		<xs:sequence>
+			<xs:element name="batch" type="batchType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####STORAGE AREA#### -->
+	<xs:complexType name="storageAreaType">
+		<xs:sequence>
+			<xs:element name="storageAreaDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="batches" type="batchesType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- #####STOCK MOVEMENT#### -->
+	<xs:complexType name="stockMovementType">
+		<xs:sequence>
+			<xs:element name="movementDateTime">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01]) (0[1-9]|1[0-9]|2[0-3])(:[0-5][0-9]:[0-5][0-9]|:[0-5][0-9])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="storageAreaDescription">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="batches" type="batchesType"/>
+		</xs:sequence>
+		<xs:attribute name="direction" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="IN"/>
+					<xs:enumeration value="OUT"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

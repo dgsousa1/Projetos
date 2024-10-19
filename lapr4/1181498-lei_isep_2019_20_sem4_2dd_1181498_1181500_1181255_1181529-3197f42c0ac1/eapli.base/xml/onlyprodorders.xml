@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sffm xmlns="http://www.dei.isep.ipp.pt/lprog/sffm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dei.isep.ipp.pt/lprog/sffm sffm.xsd">
+  <productionOrders>
+    <productionOrder code="BOOTPO1" status="Pending">
+      <productionOrderSchedule>
+        <expectedStartOfExecution>2020-08-15 17:30:00</expectedStartOfExecution>
+        <grossExecutionTime>0</grossExecutionTime>
+        <effectiveExecutionTime>0</effectiveExecutionTime>
+      </productionOrderSchedule>
+      <productionOrderStatus>Pending</productionOrderStatus>
+      <productResult quantity="2.0">
+        <product>
+          <productCode>
+            <manufacturingCode>3333</manufacturingCode>
+            <commercialCode>3333</commercialCode>
+          </productCode>
+          <productDescription>
+            <briefDescription>Aluminum</briefDescription>
+            <completeDescription>Aluminum Foil</completeDescription>
+          </productDescription>
+          <productCategory>MAT1</productCategory>
+          <rawMaterial name="Aluminum">
+            <unit>UN</unit>
+          </rawMaterial>
+        </product>
+      </productResult>
+      <issueDate>2020-08-15 18:30:00</issueDate>
+      <associatedCommissions>
+        <commission>Encomenda01</commission>
+        <commission>Encomenda02</commission>
+      </associatedCommissions>
+    </productionOrder>
+    <productionOrder code="BOOTP02" status="Pending">
+      <productionOrderSchedule>
+        <expectedStartOfExecution>2020-08-20 11:30:00</expectedStartOfExecution>
+        <grossExecutionTime>0</grossExecutionTime>
+        <effectiveExecutionTime>0</effectiveExecutionTime>
+      </productionOrderSchedule>
+      <productionOrderStatus>Pending</productionOrderStatus>
+      <productResult quantity="20.0">
+        <product>
+          <productCode>
+            <manufacturingCode>4444</manufacturingCode>
+            <commercialCode>4444</commercialCode>
+          </productCode>
+          <productDescription>
+            <briefDescription>Titanium</briefDescription>
+            <completeDescription>Titanium alloy</completeDescription>
+          </productDescription>
+          <productCategory>TI1</productCategory>
+          <rawMaterial name="Titanium">
+            <unit>UN</unit>
+          </rawMaterial>
+        </product>
+      </productResult>
+      <issueDate>2020-08-21 12:30:00</issueDate>
+      <associatedCommissions>
+        <commission>Encomenda03</commission>
+        <commission>Encomenda04</commission>
+      </associatedCommissions>
+    </productionOrder>
+  </productionOrders>
+</sffm>

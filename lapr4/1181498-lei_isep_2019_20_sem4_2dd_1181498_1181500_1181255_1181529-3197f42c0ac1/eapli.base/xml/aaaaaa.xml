@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href=ShowAllCategoriesHTML.xsl?>
+<sffm xmlns="http://www.dei.isep.ipp.pt/lprog/sffm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dei.isep.ipp.pt/lprog/sffm sffm.xsd">
+  <materialCategories>
+    <materialCategory code="CAT1">
+      <categoryDescription>Category1</categoryDescription>
+    </materialCategory>
+    <materialCategory code="CAT2">
+      <categoryDescription>Category2</categoryDescription>
+    </materialCategory>
+  </materialCategories>
+  <productCategories>
+    <productCategory>CAT1</productCategory>
+    <productCategory>CAT2</productCategory>
+    <productCategory>MAT1</productCategory>
+    <productCategory>TI1</productCategory>
+  </productCategories>
+  <materialCatalog>
+    <materials>
+      <material>
+        <materialCode code="AB11">
+          <materialName>Material1</materialName>
+        </materialCode>
+        <materialCategoryCode>CAT1</materialCategoryCode>
+        <technicalFile>
+          <fileName>File1</fileName>
+          <filePath>FilePath1</filePath>
+        </technicalFile>
+        <rawMaterial name="Material1">
+          <unit>UN</unit>
+        </rawMaterial>
+      </material>
+      <material>
+        <materialCode code="AB22">
+          <materialName>Material2</materialName>
+        </materialCode>
+        <materialCategoryCode>CAT2</materialCategoryCode>
+        <technicalFile>
+          <fileName>File2</fileName>
+          <filePath>FilePath2</filePath>
+        </technicalFile>
+        <rawMaterial name="Material2">
+          <unit>UN</unit>
+        </rawMaterial>
+      </material>
+    </materials>
+  </materialCatalog>
+  <productCatalog>
+    <products>
+      <product>
+        <productCode>
+          <manufacturingCode>1111</manufacturingCode>
+          <commercialCode>2222</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Product1</briefDescription>
+          <completeDescription>First Product</completeDescription>
+        </productDescription>
+        <productCategory>CAT1</productCategory>
+        <rawMaterial name="Product1">
+          <unit>UN</unit>
+        </rawMaterial>
+      </product>
+      <product>
+        <productCode>
+          <manufacturingCode>2222</manufacturingCode>
+          <commercialCode>5555</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Product2</briefDescription>
+          <completeDescription>Second Product</completeDescription>
+        </productDescription>
+        <productCategory>CAT2</productCategory>
+        <rawMaterial name="Product2">
+          <unit>UN</unit>
+        </rawMaterial>
+      </product>
+      <product>
+        <productCode>
+          <manufacturingCode>3333</manufacturingCode>
+          <commercialCode>3333</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Aluminum</briefDescription>
+          <completeDescription>Aluminum Foil</completeDescription>
+        </productDescription>
+        <productCategory>MAT1</productCategory>
+        <rawMaterial name="Aluminum">
+          <unit>UN</unit>
+        </rawMaterial>
+      </product>
+      <product>
+        <productCode>
+          <manufacturingCode>4444</manufacturingCode>
+          <commercialCode>4444</commercialCode>
+        </productCode>
+        <productDescription>
+          <briefDescription>Titanium</briefDescription>
+          <completeDescription>Titanium alloy</completeDescription>
+        </productDescription>
+        <productCategory>TI1</productCategory>
+        <rawMaterial name="Titanium">
+          <unit>UN</unit>
+        </rawMaterial>
+      </product>
+    </products>
+  </productCatalog>
+  <productionOrders>
+    <productionOrder code="BOOTPO1">
+      <productionOrderSchedule>
+        <expectedStartOfExecution>2020-08-15 17:30:00</expectedStartOfExecution>
+        <grossExecutionTime>0</grossExecutionTime>
+        <effectiveExecutionTime>0</effectiveExecutionTime>
+      </productionOrderSchedule>
+      <productionOrderStatus>Pending</productionOrderStatus>
+      <productResult quantity="2.0">
+        <product>
+          <productCode>
+            <manufacturingCode>3333</manufacturingCode>
+            <commercialCode>3333</commercialCode>
+          </productCode>
+          <productDescription>
+            <briefDescription>Aluminum</briefDescription>
+            <completeDescription>Aluminum Foil</completeDescription>
+          </productDescription>
+          <productCategory>MAT1</productCategory>
+          <rawMaterial name="Aluminum">
+            <unit>UN</unit>
+          </rawMaterial>
+        </product>
+      </productResult>
+      <issueDate>2020-08-15 18:30:00</issueDate>
+      <associatedCommissions>
+        <commission>Encomenda01</commission>
+        <commission>Encomenda02</commission>
+      </associatedCommissions>
+    </productionOrder>
+    <productionOrder code="BOOTP02">
+      <productionOrderSchedule>
+        <expectedStartOfExecution>2020-08-20 11:30:00</expectedStartOfExecution>
+        <grossExecutionTime>0</grossExecutionTime>
+        <effectiveExecutionTime>0</effectiveExecutionTime>
+      </productionOrderSchedule>
+      <productionOrderStatus>Pending</productionOrderStatus>
+      <productResult quantity="20.0">
+        <product>
+          <productCode>
+            <manufacturingCode>4444</manufacturingCode>
+            <commercialCode>4444</commercialCode>
+          </productCode>
+          <productDescription>
+            <briefDescription>Titanium</briefDescription>
+            <completeDescription>Titanium alloy</completeDescription>
+          </productDescription>
+          <productCategory>TI1</productCategory>
+          <rawMaterial name="Titanium">
+            <unit>UN</unit>
+          </rawMaterial>
+        </product>
+      </productResult>
+      <issueDate>2020-08-21 12:30:00</issueDate>
+      <associatedCommissions>
+        <commission>Encomenda03</commission>
+        <commission>Encomenda04</commission>
+      </associatedCommissions>
+    </productionOrder>
+  </productionOrders>
+  <productionLines>
+    <productionLine id="1">
+      <machines>
+        <machine serialNumber="12121">
+          <machineModel name="Model3">
+            <description>Machine Description 3</description>
+            <machineBrand>Brand1</machineBrand>
+          </machineModel>
+        </machine>
+        <machine serialNumber="33333">
+          <machineModel name="Model4">
+            <description>Machine Description 4</description>
+            <machineBrand>Brand2</machineBrand>
+          </machineModel>
+        </machine>
+      </machines>
+    </productionLine>
+  </productionLines>
+  <storageAreas>
+    <storageArea>
+      <storageAreaDescription>StorageArea1</storageAreaDescription>
+      <batches/>
+    </storageArea>
+    <storageArea>
+      <storageAreaDescription>StorageArea2</storageAreaDescription>
+      <batches/>
+    </storageArea>
+  </storageAreas>
+</sffm>

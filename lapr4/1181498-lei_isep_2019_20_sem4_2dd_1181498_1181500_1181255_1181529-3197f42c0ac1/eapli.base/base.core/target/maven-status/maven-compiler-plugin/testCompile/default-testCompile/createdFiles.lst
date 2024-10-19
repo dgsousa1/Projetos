@@ -1,0 +1,7 @@
+eapli\base\product\domain\ProductCatalogTest.class
+eapli\base\product\domain\ProductCodeTest.class
+eapli\base\product\domain\ProductCategoryTest.class
+eapli\base\product\domain\ProductDescriptionTest.class
+eapli\base\machine\domain\MachineTest.class
+eapli\base\product\domain\ProductTest.class
+eapli\base\clientusermanagement\domain\ClientUserTest.class

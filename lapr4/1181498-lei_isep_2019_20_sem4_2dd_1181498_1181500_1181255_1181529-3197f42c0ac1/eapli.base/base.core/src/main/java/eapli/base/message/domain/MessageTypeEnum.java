@@ -1,0 +1,6 @@
+package eapli.base.message.domain;
+
+public enum MessageTypeEnum {
+    ENDOFACTIVITY, FORCEDSTOPPING, RETURNTOACTIVITY, CONSUMPTION,
+    PRODUCED, PRODUCTDELIVERY, EXCESS, STARTOFACTIVITY
+}
