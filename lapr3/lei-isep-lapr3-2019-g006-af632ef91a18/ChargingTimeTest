@@ -1,0 +1,4 @@
+escooter description;type;actual battery capacity;time to finish charge in seconds
+ID-003;city;70.0;1440.0
+ID-001;off-road;50.0;1200.0
+ID-002;city;50.0;1200.0

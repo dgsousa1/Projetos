@@ -1,0 +1,3 @@
+vehicle description;vehicle unlock time;vehicle lock time;origin park latitude;origin park longitude;origin park elevation;destination park latitude;destination park longitude;destination park elevation;elevation difference;points
+S001;1578249600000;1578253200000;47.15227;55.60929;0;22.15227;55.30929;0;0;10
+S001;1578681600000;1578685200000;47.15227;55.60929;0;22.15227;55.30929;0;0;40

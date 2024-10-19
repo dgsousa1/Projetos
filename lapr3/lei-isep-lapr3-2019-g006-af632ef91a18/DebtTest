@@ -1,0 +1,3 @@
+vehicle description;vehicle unlock time;vehicle lock time;origin park latitude;origin park longitude;destination park latitude;destination park longitude;total time spent in seconds;charged value
+S001;1578522841664;1578522841664;47.15227;55.60929;22.15227;55.30929;0;30.0
+S001;1578522841664;1578522841664;47.15227;55.60929;22.15227;55.30929;0;50.0
