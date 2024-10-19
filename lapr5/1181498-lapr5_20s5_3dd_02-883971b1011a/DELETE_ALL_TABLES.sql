@@ -1,0 +1,10 @@
+DROP TABLE dbo.__EFMigrationsHistory;
+DROP TABLE dbo.Users;
+DROP TABLE dbo.Drivers;
+DROP TABLE dbo.TripPassingTime;
+DROP TABLE dbo.Trips;
+DROP TABLE dbo.Vehicles;
+DROP TABLE dbo.WorkBlocks_trips;
+DROP TABLE dbo.WorkBlocks;
+DROP TABLE dbo.VehicleDuties;
+DROP TABLE dbo.WorkBlockKey;

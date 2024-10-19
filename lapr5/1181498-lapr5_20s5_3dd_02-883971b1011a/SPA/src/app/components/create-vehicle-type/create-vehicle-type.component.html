@@ -1,0 +1,77 @@
+<h2>Criar Tipo de Veículo</h2>
+<div class="createVT">
+  <form id="vehicleTypeForm" [formGroup]="vehicleTypeForm" (ngSubmit)="addVehicleType()">
+    <div>
+      <label>
+        Nome
+        <input type="text" name="name" placeholder="Inserir nome do veículo" formControlName="name" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Descrição
+        <input type="text" name="description" placeholder="Inserir descrição" formControlName="description" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Tipo de Combustível
+        <select id="fuelType" formControlName="fuelType" required> 
+          <option value="Diesel/Gasoleo">Diesel/Gasóleo</option>
+          <option value="GPL">GPL</option>
+          <option value="Hydrogen">Hidrogênio</option>
+          <option value="Electric">Elétrico</option>
+          <option value="Gasoline">Gasolina</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Autonomia
+        <input type="number" min="1" name="autonomy"  placeholder="Inserir autonomia (Km)" formControlName="autonomy" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Custo por Kilómetro
+        <input type="number" min="1" name="costPerKilometer" placeholder="Inserir custo por quilômetro" formControlName="costPerKilometer" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Consumo
+        <input type="number" min="1" name="consumption" placeholder="Inserir consumo" formControlName="consumption" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Velocidade Média
+        <input type="number" min="1" name="averageSpeed" placeholder="Inserir velocidade média" formControlName="averageSpeed" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Emissão
+        <input type="number" min="1" name="emission" placeholder="Inserir emissão" formControlName="emission" required>
+      </label>
+    </div>
+
+    <div>
+      <button type="submit" id="btnSubmit" [disabled]="!vehicleTypeForm.valid">Submeter</button>
+    </div>
+
+    <div [ngStyle]="{'color': !errorOccur? 'green' : 'red'}">
+      <span>{{message}}</span>
+    </div>
+  </form>
+</div>
+
+<p>{{vehicleTypeForm.value | json}}</p>
+<p>{{vehicleTypeForm.status}}</p>

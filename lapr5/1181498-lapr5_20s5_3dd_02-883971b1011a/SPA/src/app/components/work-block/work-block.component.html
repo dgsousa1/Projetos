@@ -1,0 +1,33 @@
+<h2 class="page-header">Criar Bloco de Trabalho</h2>
+
+<form id="workBlockForm" [formGroup]="workBlockForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+        <label>Identificação do Bloco Trabalho</label>
+        <input type="text" name="wbKey" class="form-control" placeholder="Identificação do Bloco Trabalho"
+            formControlName="wbKey" required>
+    </div>
+
+    <div class="form-group">
+        <label>Data de Inicio</label>
+        <input type="datetime-local" name="startTime" class="form-control" placeholder="Data de Inicio"
+            formControlName="startTime" required>
+    </div>
+
+    <div class="form-group">
+        <label>Data de Fim</label>
+        <input type="datetime-local" name="endTime" class="form-control" placeholder="Data de Fim"
+            formControlName="endTime" required>
+    </div>
+
+    <div class="form-group">
+        <label>Viagens</label>
+        <select id="trip" multiple class="form-control" formControlName="viagens" required>
+            <option *ngFor="let t of trips">
+                Viagem:{{t.tripNumber}}, Orientação: {{t.orientation}}, Linha: {{t.line}}
+            </option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!workBlockForm.valid">Submeter</button>
+</form>

@@ -1,0 +1,24 @@
+<h2 class="page-header">Listar Serviços de Viatura</h2>
+
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Blocos de Trabalho</th>
+            <th scope="col">Duração</th>
+            <th scope="col">Cor</th>
+            <th scope="col">Data de Validade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sd of vehicleDuties">
+            <td>{{sd.code}}</td>
+            <td>{{sd.name}}</td>
+            <td>{{sd.workBlocks}}</td>
+            <td>{{sd.duration}}</td>
+            <td>{{sd.color}}</td>
+            <td>{{sd.validDate}}</td>
+        </tr>
+    </tbody>
+</table>

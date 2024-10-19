@@ -1,0 +1,21 @@
+#mapa-mapbox.mapboxgl-map{
+    height: 550px;
+    width: 70%;
+    float: left;
+    margin : 0;
+    background-color: #87ceeb;
+}  
+
+.container{
+    display: inline-block;
+    width: 1000px;
+    height: 800px;
+}
+
+.controls{
+    border: 2px solid #8b8b8b;
+    background-color: #ffffff;
+    width: auto;
+    height: 550px;
+    float:right;
+}

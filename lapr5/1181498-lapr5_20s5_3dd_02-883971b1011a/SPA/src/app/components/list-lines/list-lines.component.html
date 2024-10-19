@@ -1,0 +1,52 @@
+<h2>Listar Linhas</h2>
+
+<div>
+  <div class="params">
+    <span>Ordenar por:</span>
+    <select name="orderType" [(ngModel)]="orderType">
+      <option value="name">Nome</option>
+      <option value="id">Id</option>
+    </select>
+  </div>
+
+  <div class="params">
+    <span>Filtrar por: </span>
+    <select name="nameOrID" [(ngModel)]="nameOrID">
+      <option value="name">Nome</option>
+      <option value="id">Id</option>
+    </select>
+  </div>
+  <div class="params">
+    <input name="input" type="text" [(ngModel)]="input" />
+  </div>
+  <div class="params">
+    <button id="btnSearch" (click)="getStuff()">Procurar</button>
+    <button (click)="clearInputs()">Resetar</button>
+  </div>
+</div>
+
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cor</th>
+        <th>Caminho Ida</th>
+        <th>Caminho Volta</th>
+        <th>Tipo de veículo</th>
+        <th>Tipo de tripulante</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let line of lines">
+        <td>{{line.name}}</td>
+        <td>{{line.color}}</td>
+        <td>{{line.pathGo}}</td>
+        <td>{{line.pathReturn}}</td>
+        <td>{{line.vehicleType}}</td>
+        <td>{{line.driverType}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

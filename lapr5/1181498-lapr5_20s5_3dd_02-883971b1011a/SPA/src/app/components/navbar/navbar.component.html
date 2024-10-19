@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(34, 34, 34);">
+    <div class="container-fluid">
+        <h2 class="page-header"><a routerLink="home" class="navbar-brand">Autoridade Intermunicipal de Transportes</a>
+        </h2>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <ul class="navbar-nav mr-auto">
+
+                <li *ngIf="baseLoggedIn()" class="nav-item">
+                    <a routerLink="dashboard" routerActiveLink="active" class="nav-link">Dashboard</a>
+                </li>
+
+                <li *ngIf="adminLoggedIn()" class="nav-item dropdown" dropdown>
+                    <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                        Master Data Rede
+                    </a>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a routerLink="import-file" class="dropdown-item">Importar Ficheiro</a></li>
+                        <li><a routerLink="create-node" class="dropdown-item">Nó</a></li>
+                        <li><a routerLink="list-nodes" class="dropdown-item">Listar Nós</a></li>
+                        <li><a routerLink="create-line" class="dropdown-item">Linha</a></li>
+                        <li><a routerLink="list-lines" class="dropdown-item">Listar Linhas</a></li>
+                        <li><a routerLink="create-driver-type" class="dropdown-item">Tipo de Tripulante</a></li>
+                        <li><a routerLink="list-driver-types" class="dropdown-item">Listar Tipo de Tripulantes</a></li>
+                        <li><a routerLink="create-vehicle-type" class="dropdown-item">Tipo de Veículo</a></li>
+                        <li><a routerLink="list-vehicle-types" class="dropdown-item">Listar Tipo de Veículos</a></li>
+                        <li><a routerLink="create-path" class="dropdown-item">Caminho</a></li>
+                        <li><a routerLink="list-paths" class="dropdown-item">Caminhos de uma Linha</a></li>
+                        <li><a routerLink="fastest-path" class="dropdown-item">Caminho mais Rápido</a></li>
+                    </ul>
+                </li>
+
+                <li *ngIf="adminLoggedIn()" class="nav-item dropdown" dropdown>
+                    <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                        Master Data Viagem
+                    </a>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a routerLink="import-file-mdv" class="dropdown-item">Importar Ficheiro</a></li>
+                        <li><a routerLink="vehicle" class="dropdown-item">Definir Viatura</a></li>
+                        <li><a routerLink="driver" class="dropdown-item">Definir Tripulante</a></li>
+                        <li><a routerLink="create-trip" class="dropdown-item">Criar Viagem</a></li>
+                        <li><a routerLink="generate-trips" class="dropdown-item">Gerar Viagens</a></li>
+                        <li><a routerLink="work-block" class="dropdown-item">Criar Bloco de Trabalho</a>
+                        <li><a routerLink="service-duty" class="dropdown-item">Criar Serviço de Viatura</a></li>
+                        <li><a routerLink="list-trips-of-line" class="dropdown-item">Listar Viagens duma Linha</a></li>
+                        <li><a routerLink="servico-tripulante" class="dropdown-item">Criar Serviço de Tripulante</a></li>
+                        <li><a routerLink="algoritmo-algav" class="dropdown-item">Gerar Serviços de Tripulante</a></li>
+                        <li><a routerLink="list-vehicle-duties" class="dropdown-item">Listar Serviços de Viatura</a></li>
+                        <li><a routerLink="list-driver-duties" class="dropdown-item">Listar Serviços de Tripulante</a></li>
+                        <li><a routerLink="generate-all-driver-duties" class="dropdown-item">Gerar Todos os Serviços de Tripulantes</a></li>
+
+                    </ul>
+                </li>
+
+                <li *ngIf="baseLoggedIn()" class="nav-item">
+                    <a routerLink="mapa" routerActiveLink="active" class="nav-link">Mapa</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ">
+                <li *ngIf="!baseLoggedIn()" class="nav-item">
+                    <a routerLink="login" routerActiveLink="active" class="nav-link">Login</a>
+                </li>
+
+                <li *ngIf="!baseLoggedIn()" class="nav-item">
+                    <a routerLink="register" routerActiveLink="active" class="nav-link">Registar</a>
+                </li>
+
+                <li *ngIf="baseLoggedIn()" class="nav-item dropdown" dropdown>
+                    <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                        {{label}}
+                    </a>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a routerLink="profile" class="dropdown-item">Perfil</a></li>
+                        <li><a class="dropdown-item" (click)="onLogoutClick()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

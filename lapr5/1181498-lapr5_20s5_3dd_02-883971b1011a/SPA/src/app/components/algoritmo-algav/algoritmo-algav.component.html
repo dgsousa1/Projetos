@@ -1,0 +1,77 @@
+<h2 class="page-header">Gerar Serviços de Tripulante</h2>
+
+<form *ngIf="!loaded" id="algavForm" [formGroup]="algavForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Número de Gerações</label>
+        <input min=1 type="number" name="geracoes" class="form-control" placeholder="Número de Gerações"
+            formControlName="geracoes">
+        <small id="smallGeracoes" class="form-text text-muted">Opcional</small>
+    </div>
+
+    <div class="form-group">
+        <label>Dimensão da População</label>
+        <input min=2 max=8 type="number" name="dimensaoPop" class="form-control" placeholder="Dimensão da População"
+            formControlName="dimensaoPop" required>
+    </div>
+
+    <div class="form-group">
+        <label>Id do Serviço de Viatura</label>
+        <select class="form-control" formControlName="idServicoViatura">
+            <option></option>
+            <option *ngFor="let vd of vehicleDuties">{{vd.code}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Probabilidade de Cruzamento</label>
+        <input min=0 max=100 type="number" name="cruzamento" class="form-control"
+            placeholder="Probabilidade de Cruzamento" formControlName="cruzamento" required>
+    </div>
+
+    <div class="form-group">
+        <label>Probabilidade de Mutação</label>
+        <input min=0 max=100 type="number" name="mutacao" class="form-control" placeholder="Probabilidade de Mutação"
+            formControlName="mutacao" required>
+    </div>
+
+    <div class="form-group">
+        <label>Tempo</label>
+        <input min=0 type="number" name="tempo" class="form-control" placeholder="Tempo (segundos)"
+            formControlName="tempo">
+        <small id="smallTempo" class="form-text text-muted">Opcional</small>
+    </div>
+
+
+    <div class="form-group">
+        <label>Avaliação</label>
+        <input min=0 type="number" name="avaliacao" class="form-control" placeholder="Avaliação"
+            formControlName="avaliacao">
+        <small id="smallAvalicao" class="form-text text-muted">Opcional</small>
+    </div>
+
+    <div class="form-group">
+        <label>Estabilização</label>
+        <input min=0 type="number" name="estabilizacao" class="form-control" placeholder="Estabilização"
+            formControlName="estabilizacao">
+        <small id="smallEst" class="form-text text-muted">Opcional</small>
+    </div>
+
+    <button class="btn btn-primary col-md-12" type="submit" [disabled]="!algavForm.valid">Submeter</button>
+</form>
+
+<div *ngIf="loaded">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tripulantes</th>
+                <th scope="col">Avaliação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{algavJson.drivers}}</td>
+                <td>{{algavJson.aval}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

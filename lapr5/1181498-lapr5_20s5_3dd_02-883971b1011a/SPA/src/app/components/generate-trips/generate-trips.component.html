@@ -1,0 +1,50 @@
+<h2 class="page-header">Gerar Viagens</h2>
+
+<form id="generateTripsForm" [formGroup]="generateTripsForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Nome da Linha</label>
+        <select id="lineNameId" class="form-control" formControlName="nomeLinha" [(ngModel)]="pickedLine"
+            (ngModelChange)="getPathsFromLine()" required>
+            <option></option>
+            <option *ngFor="let l of lines">{{l.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Hora de Início</label>
+        <input type="time" name="startDateService" class="form-control" formControlName="horaInicio"
+            [(ngModel)]="horaInicio" required>
+    </div>
+
+    <div class="form-group">
+        <label>Frequência</label>
+        <input type="time" name="startDateService" class="form-control" formControlName="frequencia"
+            [(ngModel)]="frequencia" required>
+    </div>
+
+    <div class="form-group">
+        <label>Número da Viagens</label>
+        <input min=2 type="number" name="tripNumber" class="form-control" placeholder="Número da Viagem"
+            [(ngModel)]="numViagens" formControlName="numeroViagens" required>
+    </div>
+
+    <div class="form-group">
+        <label>Percurso</label>
+        <select class="form-control" formControlName="path" [(ngModel)]="pickedPath"
+            (ngModelChange)="calculateTravelTimeAgainstFrequency()" required>
+            <option></option>
+            <option *ngFor="let t of tripPaths">
+                {{t.nodes}}
+            </option>
+        </select>
+    </div>
+
+    <div *ngIf="haParalelos" class="form-group">
+        <label>Viagens em Paralelos</label>
+        <input min=1 type="number" name="paralelos" class="form-control" placeholder="Viagens em Paralelos"
+            [(ngModel)]="NParalelos" formControlName="paralelos" required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!generateTripsForm.valid">Submeter</button>
+</form>

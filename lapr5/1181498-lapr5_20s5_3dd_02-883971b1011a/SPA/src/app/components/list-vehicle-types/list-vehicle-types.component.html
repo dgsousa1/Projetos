@@ -1,0 +1,29 @@
+<h2>Listar Tipo de Veículos</h2>
+
+<table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Tipo de Combustível</th>
+        <th>Autonomia</th>
+        <th>Custo por Quilômetro</th>
+        <th>Consumo</th>
+        <th>Velocidade Média</th>
+        
+        <th>Emission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicleType of vehicleTypes">
+        <td>{{vehicleType.name}}</td>
+        <td>{{vehicleType.description}}</td>
+        <td>{{vehicleType.fuelType}}</td>
+        <td>{{vehicleType.autonomy}}</td>
+        <td>{{vehicleType.costPerKilometer}}</td>
+        <td>{{vehicleType.consumption}}</td>
+        <td>{{vehicleType.averageSpeed}}</td>        
+        <td>{{vehicleType.emission}}</td>
+      </tr>
+    </tbody>
+  </table>

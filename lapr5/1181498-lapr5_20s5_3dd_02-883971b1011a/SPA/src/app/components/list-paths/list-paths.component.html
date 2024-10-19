@@ -1,0 +1,78 @@
+<h2>Percursos de uma Linha</h2>
+<div class="params">
+    <input type="text" placeholder="Inserir nome da linha" [(ngModel)]="input"/>
+</div>
+<div class="params">
+    <button (click)="getExactLine(input)">Procurar</button>
+</div>
+
+<div *ngIf="loaded">
+    <table>
+        <thead>
+            <th>#Caminho</th>
+            <th>Tipo</th>
+            <th>Duração</th>
+            <th>Distância</th>
+            <th>Nó Inicial</th>
+            <th>Nó Final</th>
+        </thead>
+
+        <tbody *ngFor="let path of pathsGo">
+            <tr *ngFor="let pathNode of path.pathNodes">
+                <td>{{path.key}}</td>
+                <td>Ida</td>
+                <td>{{pathNode.duracao}}</td>
+                <td>{{pathNode.distancia}}</td>
+                <td>{{pathNode.inicialNode}}</td>
+                <td>{{pathNode.finalNode}}</td>
+            </tr>
+        </tbody>
+
+        <tbody *ngFor="let ret of pathsReturn">
+            <tr *ngFor="let pn of ret.pathNodes">
+                <td>{{ret.key}}</td>
+                <td>Volta</td>
+                <td>{{pn.duracao}}</td>
+                <td>{{pn.distancia}}</td>
+                <td>{{pn.inicialNode}}</td>
+                <td>{{pn.finalNode}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+<!--
+    <div *ngFor="let path of pathsGo">
+        {{path.key}}
+        <br>
+        GOS:
+        <div *ngFor="let pathNode of path.pathNodes">
+            {{pathNode.duracao}}
+            {{pathNode.distancia}}
+            {{pathNode.inicialNode}}
+            {{pathNode.finalNode}}
+        </div>
+    </div>
+    <br>
+    <hr>
+    <hr>
+    <hr>
+    <br>
+    <div *ngFor="let path of pathsReturn">
+        {{path.key}}
+        <br>
+        Return:
+        <div *ngFor="let pathNode of path.pathNodes">
+            {{pathNode.duracao}}
+            {{pathNode.distancia}}
+            {{pathNode.inicialNode}}
+            {{pathNode.finalNode}}
+        </div>
+    </div>
+
+</div>-->

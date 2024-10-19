@@ -1,0 +1,39 @@
+<h2 class="page-header">Listar Viagens</h2>
+
+<div class="form-row">
+    <div class="form-group col-md-2">
+        <input #lineInput type="text" name="line" class="form-control" placeholder="Número da linha" required>
+    </div>
+    <div class="form-group col-md-2">
+        <button class="btn btn-primary" type="button" (click)="clicar(lineInput.value)">Procurar</button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Número</th>
+            <th scope="col">Orientação</th>
+            <th scope="col">Linha</th>
+            <th scope="col">Percurso</th>
+            <th scope="col">Nó Inicial</th>
+            <th scope="col">Nó Final</th>
+            <th scope="col">Partida</th>
+            <th scope="col">Chegada</th>
+            <th scope="col">Viagem</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trip of tripsForList">
+            <td>{{trip.tripNumber}}</td>
+            <td>{{trip.orientation}}</td>
+            <td>{{trip.line}}</td>
+            <td>{{trip.path}}</td>
+            <td>{{trip.initialNode}}</td>
+            <td>{{trip.finalNode}}</td>
+            <td>{{trip.horaPartida}}</td>
+            <td>{{trip.horaChegada}}</td>
+            <td>{{trip.tempoViagem}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+<div *ngIf="user">
+    <h2 class="page-header">Dados de Perfil</h2>
+    <br>
+    <ul class="list-group">
+        <li class="list-group-item">Permissão: {{user.role}}</li>
+        <li class="list-group-item">Nome de Utilizador: {{user.username}}</li>
+        <li class="list-group-item">Nome: {{user.name}}</li>
+        <li class="list-group-item">Email: {{user.email}}</li>
+        <li class="list-group-item">NIF: {{user.nif}}</li>
+        <li class="list-group-item">Telefone: {{user.telephone}}</li>
+    </ul>
+    <br>
+    <button type="button" class="btn btn-danger" (click)="openModal(template)">Apagar Conta</button>
+</div>
+
+<ng-template #template>
+    <div class="modal-body text-center">
+        <p>Tem a certeza que pretende eliminar os seus dados guardados?</p>
+        <button type="button" class="btn btn-danger" (click)="deleteUser()">Sim</button>
+        <button type="button" class="btn btn-light" (click)="decline()">No</button>
+    </div>
+</ng-template>

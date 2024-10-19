@@ -1,0 +1,69 @@
+<h2 class="page-header">Criar Serviço de Tripulante</h2>
+
+<form id="driverDutyForm" [formGroup]="driverDutyForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Numero Mecanográfico</label>
+        <input type="number" name="mecNumber" class="form-control" placeholder="Numero Mecanográfico"
+            formControlName="mecNumber" required>
+    </div>
+
+    <div class="form-group">
+        <label>Nome do Tripulante</label>
+        <select id="driverName" class="form-control" formControlName="driverName" required>
+            <option *ngFor="let d of drivers">
+                {{d.name}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Cor</label>
+        <input type="color" name="color" class="form-control" placeholder="Cor" formControlName="color" required>
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de Serviço de Tripulante</label>
+        <input type="text" name="type" class="form-control" placeholder="Tipo de Serviço de Tripulante"
+            formControlName="type" required>
+    </div>
+
+    <div class="form-group">
+        <label>Blocos de Trabalho</label>
+        <select id="workblock" multiple class="form-control" formControlName="workblocks" required>
+            <option *ngFor="let wb of workblocks">
+                Bloco de trabalho: {{wb.key}}, Inicio: {{wb.startInstant}}, Fim: {{wb.endInstant}}, Viagens:
+                {{wb.trips}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Duração</label>
+        <input min=1 type="number" name="duration" class="form-control" placeholder="Duração" formControlName="duration"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Data de validade</label>
+        <input type="datetime-local" name="validDate" class="form-control" placeholder="Data de Validade"
+            formControlName="validDate" required>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit" [disabled]="!driverDutyForm.valid">Submeter</button>
+</form>
+
+
+<!--
+            public String Id { get; set; }
+        public string mecNumber { get; set; }
+        public string driverName { get; set; }
+        public string color { get; set; }
+        public string type { get; set; }
+        public string[] workBlocks { get; set; }
+        public int duration { get; set; }
+        public string validDate { get; set; }
+        public bool Active { get; set; }
+    }
+-->

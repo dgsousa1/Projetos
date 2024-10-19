@@ -1,0 +1,58 @@
+<h2>Caminho mais rápido</h2>
+<div class="createFP">
+    <form id="fpForm" [formGroup]="fpForm" (ngSubmit)="getData()">
+        <div>
+            <label>
+                Nó Inicial
+                <select formControlName="inode" required>
+                    <option></option>
+                    <option *ngFor="let node of nodes">{{node.shortName}}</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Nó Final
+                <select formControlName="fnode" required>
+                    <option></option>
+                    <option *ngFor="let node of nodes">{{node.shortName}}</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Tempo
+                <input type="number" min=1 name="time" placeholder="Inserir tempo inicial" formControlName="time" required>
+            </label>
+        </div>
+
+        <div>
+            <button id="btnSubmit" type="submit" [disabled]="!fpForm.valid">Submeter</button>
+        </div>
+
+    </form>
+</div>
+
+<div *ngIf="x">
+    <table>
+        <thead>
+            <tr>
+                <th>Nó Inicial</th>
+                <th>Nó Final</th>
+                <th>Linha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of ffp.cam">
+                <td>{{c.inode}}</td>
+                <td>{{c.fnode}}</td>
+                <td>{{c.line}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <label>Custo : {{ffp.custo}}</label>
+
+</div>

@@ -1,0 +1,42 @@
+<h2>Criar Nó</h2>
+
+<form id="nodeForm" [formGroup]="userForm" (ngSubmit)="addNode()">
+
+  <div class="form-group">
+    <label>Nome</label>
+    <input type="text" class="form-control" name="name" placeholder="Inserir nome" formControlName="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Abreviatura</label>
+    <input type="text" class="form-control" name="shortName" placeholder="Inserir abreviatura"
+      formControlName="shortName" required>
+  </div>
+
+  <div class="form-group">
+    <label>Latitude</label>
+    <input type="number" class="form-control" name="latitude" min=-90 max=90 placeholder="Inserir latitude (-90 a 90)"
+      formControlName="latitude" required>
+  </div>
+
+  <div class="form-group">
+    <label>Longitude</label>
+    <input type="number" class="form-control" name="longitude" min=-180 max=180 placeholder="Inserir longitude (-180 a 180)"
+      formControlName="longitude" required>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="isDepot" name="isDepot" formControlName="isDepot">
+    <label class="form-check-label" for="isDepot">Estação de recolha</label>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="isReliefPoint" name="isReliefPoint"
+      formControlName="isReliefPoint">
+    <label class="form-check-label" for="isReliefPoint">Ponto de rendição</label>
+  </div>
+
+  <div>
+    <button id="btnSubmit" class="btn btn-primary col-md-12" type="submit" [disabled]="!userForm.valid">Submeter</button>
+  </div>
+</form>

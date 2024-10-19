@@ -1,0 +1,68 @@
+.greenClass { color: green }
+.redClass { color: red }
+
+.createpath{
+    width : 30%;
+}
+
+input[type=text], input[type="number"],input[type="time"],select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+button:disabled{
+    font-size: 15px;
+    align-items: center;
+    width: 100%;
+    background-color:#afafaf;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    width: 100%;
+    background-color:#047fbd;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+#add, #remove{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    width: 100%;
+    background-color:#5498b9;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#remove{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    width: 100%;
+    background-color:#ec7d7d;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}

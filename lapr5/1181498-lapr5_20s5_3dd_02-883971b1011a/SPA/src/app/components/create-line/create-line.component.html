@@ -1,0 +1,76 @@
+<h2>Criar Linha</h2>
+<div class="createLine">
+    <button id="removeBtn" (click)="removePaths()">-</button>
+    <button id="addBtn" (click)="addPaths()">+</button>
+    <form id="lineForm" [formGroup]="lineForm" (ngSubmit)="onSubmit()">
+
+        <div class="teste">
+            <label>Caminhos:</label>
+
+            <div *ngFor="let go of gos.controls;index as i">
+                Ida:
+                <select id="go" [formControl]="$any(go)" required>
+                    <option></option>
+                    <option *ngFor="let path of pathsList">
+                        {{path.key}}:
+                        <span *ngFor="let pn of path.pathNodes">
+                            >{{pn.inicialNode}}>{{pn.finalNode}}
+                        </span>                        
+                    </option>
+                </select>
+            </div>
+
+            <div *ngFor="let ret of returns.controls;index as j">
+                Volta:
+                <select id="return" [formControl]="$any(ret)" required>
+                    <option></option>
+                    <option *ngFor="let path of pathsList">
+                        {{path.key}}:
+                        <span *ngFor="let pn of path.pathNodes;index as j">
+                            {{pn.inicialNode}}>{{pn.finalNode}}
+                        </span>  
+                    </option>
+                </select>
+            </div>
+
+        </div>
+
+        <div>
+            <label>
+                Nome
+                <input type="text" name="name" placeholder="Inserir nome da linha" formControlName="name" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Cor
+                <input type="color" name="color" placeholder="Inserir cor" formControlName="color" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Tipo de Veículo
+                <select id="vehicleTypeId" formControlName="vehicleType">
+                    <option></option>
+                    <option *ngFor="let vehicle of vehicleTypeList">{{vehicle.name}}</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Tipo de tripulante
+                <select id="driverTypeId" formControlName="driverType">
+                    <option></option>
+                    <option *ngFor="let driver of driverTypeList">{{driver.name}}</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            <button id="btnSubmit" type="submit" [disabled]="!lineForm.valid">Submeter</button>
+        </div>
+    </form>
+</div>

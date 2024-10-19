@@ -1,0 +1,28 @@
+<h2 class="page-header">Criar Viatura</h2>
+
+<form id="vehicleForm" [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Matrícula</label>
+        <input type="text" name="licensePlate" class="form-control" placeholder="Exemplo: AA-00-00"
+            formControlName="licensePlate" required>
+    </div>
+    <div class="form-group">
+        <label>Número de Identificação da Viatura (VIN)</label>
+        <input type="text" name="vin" class="form-control" placeholder="Número de Identificação do Veículo (17 Digítos)"
+            formControlName="VIN" required>
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de Viatura</label>
+        <select id="idVehicleType" class="form-control" formControlName="type">
+            <option></option>
+            <option *ngFor="let vt of vehicleTypes">{{vt.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Data de Entrada ao Serviço</label>
+        <input type="date" name="startDateService" class="form-control" formControlName="startDateService" required>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!vehicleForm.valid">Submeter</button>
+</form>

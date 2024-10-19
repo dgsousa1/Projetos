@@ -1,0 +1,73 @@
+<h2>Criar Caminho</h2>
+<div class="createpath">
+
+  <form id="form" novalidate [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+
+
+    <div>
+      <label>
+        <span>Número</span>
+        <input type="number" name="key" placeholder="Inserir número" formControlName="key">
+      </label>
+    </div>
+
+    <div>
+      <button id="add" type="button" (click)="addPathNodeForm()">Adicionar novo percurso</button>
+    </div>
+
+    <div formArrayName="pathNodes">
+
+      <div *ngFor="let pathNode of pathNodeFromGroup.controls; let i = index;">
+        <div [formGroupName]="i">
+          <div>
+            <label>
+              <span>Duração</span>
+              <input type="number" min=1 name="duracao" placeholder="Inserir duração (min)" formControlName="duracao">
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <span>Distância</span>
+              <input type="number" min=1 name="distancia" placeholder="Inserir distância" formControlName="distancia">
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <span>Nó Inicial</span>
+              <select id="inicialNodeId" formControlName="inicialNode">
+                <option></option>
+                <option *ngFor="let node of nodesList">{{node.name}}</option>
+              </select>
+            </label>
+          </div>
+
+          <div>
+            <label>
+              <span>Nó Final</span>
+              <select id="finalNodeId"  formControlName="finalNode">
+                <option></option>
+                <option *ngFor="let node of nodesList">{{node.name}}</option>
+              </select>
+            </label>
+          </div>
+
+          <div>
+            <button id="remove" type="button" (click)="removePathNodeForm(i)">Remover percurso</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!form.valid">Submeter</button>
+    </div>
+
+
+    <div [ngStyle]="{'color': !errorOccur? 'green' : 'red'}">
+      <span>{{message}}</span>
+    </div>
+
+  </form>
+</div>

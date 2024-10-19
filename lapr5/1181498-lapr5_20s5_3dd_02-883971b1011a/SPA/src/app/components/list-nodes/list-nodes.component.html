@@ -1,0 +1,63 @@
+<h2>Listar Nós</h2>
+<div class="filter">
+  <div class="params">
+    <span>Ordenar por:</span>
+    <select name="orderType" [(ngModel)]="orderType">
+      <option value="name">Nome</option>
+      <option value="id">Id</option>
+    </select>
+  </div>
+
+  <div class="params">
+    <span>Filtrar por: </span>
+    <select name="nameOrID" [(ngModel)]="nameOrID">
+      <option value="name">Nome</option>
+      <option value="id">Id</option>
+    </select>
+  </div>
+
+  <div class="params" *ngIf="nameOrID!=undefined">
+    <input #filterInput name="input" type="text" placeholder="Enter {{nameOrID}}" [(ngModel)]="input" />
+  </div>
+
+  <div class="params" *ngIf="nameOrID=='name'">
+    <label for="isDepot">Estação de recolha</label>
+    <input type="checkbox" name="depot" [(ngModel)]="depot" />
+    <label for="isReliefPoint">Ponto de rendição</label>
+    <input type="checkbox" name="reliefPoint" [(ngModel)]="reliefPoint" />
+  </div>
+
+  <div class="params">
+    <div class="paramsBtn">
+      <button class="search" (click)="searchNodeList()">Procurar</button>
+      <button class="reset" (click)="clearInputs()">Limpar</button>
+    </div>
+  </div>
+
+  <span>{{message}}</span>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Abreviatura</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Estação de recolha</th>
+        <th>Ponto de rendição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let node of nodes">
+        <td>{{node.name}}</td>
+        <td>{{node.shortName}}</td>
+        <td>{{node.latitude}}</td>
+        <td>{{node.longitude}}</td>
+        <td>{{node.isDepot ?'X' : ''}}</td>
+        <td>{{node.isReliefPoint ?'X' : ''}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

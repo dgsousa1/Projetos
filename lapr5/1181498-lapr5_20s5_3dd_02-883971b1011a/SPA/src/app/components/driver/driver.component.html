@@ -1,0 +1,64 @@
+<h2 class="page-header">Criar Tripulante</h2>
+
+<form id="driverForm" [formGroup]="driverForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Número Mecanográfico</label>
+        <input type="text" name="mecNumber" class="form-control" placeholder="Número Mecanográfico (9 Digítos)"
+            formControlName="mecNumber" required>
+    </div>
+    <div class="form-group">
+        <label>Nome de Tripulante</label>
+        <input type="text" name="name" class="form-control" placeholder="Nome de Tripulante" formControlName="name"
+            required>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Data de Nascimento</label>
+            <input type="date" name="birthDate" class="form-control" formControlName="birthDate" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Nº Cartão de Cidadão</label>
+            <input type="text" name="cc" class="form-control" placeholder="Nº Cartão de Cidadão (8 Digítos)"
+                formControlName="cc" required>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Nº Identificação Fiscal</label>
+            <input type="text" name="nif" class="form-control" placeholder="Nº Identificação Fiscal (9 Digítos)"
+                formControlName="nif" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Tipo de Tripulante</label>
+        <select id="idDriverType" class="form-control" formControlName="driverType">
+            <option></option>
+            <option *ngFor="let dt of driverTypes">{{dt.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Data de Entrada na Empresa</label>
+            <input type="date" name="startDateCompany" class="form-control" formControlName="startDateCompany" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Data de Saída na Empresa</label>
+            <input type="date" name="finalDateCompany" class="form-control" formControlName="finalDateCompany" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Numero da Licença</label>
+            <input type="text" name="licenseNumber" class="form-control" placeholder="Numero da Licença (12 Digítos)"
+                formControlName="licenseNumber" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Data da Licença</label>
+            <input type="date" name="licenseDate" class="form-control" formControlName="licenseDate" required>
+        </div>
+    </div>
+
+    <button class="btn btn-primary col-md-12" type="submit" [disabled]="!driverForm.valid">Submeter</button>
+</form>

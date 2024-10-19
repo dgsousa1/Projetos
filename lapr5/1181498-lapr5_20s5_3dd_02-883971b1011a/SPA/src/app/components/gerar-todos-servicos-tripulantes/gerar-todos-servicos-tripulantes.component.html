@@ -1,0 +1,22 @@
+<h2 class="page-header">Gerar Todos os Serviços de Tripulantes</h2>
+
+<div>
+    <button type="button" class="btn btn-primary" (click)="gerarServicos()">Gerar</button>
+</div>
+<br>
+<div *ngIf="loaded">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Serviço de Viatura</th>
+                <th scope="col">Tripulantes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of ar">
+                <td>{{a.serviceDuty}}</td>
+                <td>{{a.drivers}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

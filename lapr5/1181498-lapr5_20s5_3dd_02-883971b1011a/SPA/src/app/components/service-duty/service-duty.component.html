@@ -1,0 +1,38 @@
+<h2 class="page-header">Criar Serviço de Viatura</h2>
+
+<form id="serviceDutyForm" [formGroup]="serviceDutyForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Nome de Serviço de Viatura</label>
+        <input type="text" name="name" class="form-control" placeholder="Nome de Serviço de Viatura"
+            formControlName="name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Código de Serviço de Viatura</label>
+        <input type="number" name="code" class="form-control" placeholder="Código de Serviço de Viatura"
+            formControlName="code" required>
+    </div>
+
+    <div class="form-group">
+        <label>Blocos de Trabalho</label>
+        <select id="workblock" multiple class="form-control" formControlName="workblocks" required>
+            <option *ngFor="let wb of workblocks">
+                Bloco de trabalho: {{wb.key}}, Inicio: {{wb.startInstant}}, Fim: {{wb.endInstant}}, Viagens: {{wb.trips}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Data de validade</label>
+        <input type="datetime-local" name="validDate" class="form-control" placeholder="Data de Validade"
+            formControlName="validDate" required>
+    </div>
+    <div class="form-group">
+        <label>Cor</label>
+        <input type="color" name="color" class="form-control" placeholder="Cor"
+            formControlName="color" required>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!serviceDutyForm.valid">Submeter</button>
+</form>

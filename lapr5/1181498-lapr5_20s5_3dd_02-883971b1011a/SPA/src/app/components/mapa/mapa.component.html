@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div id="mapa-mapbox"></div>
+    <div class="controls">
+        <div class="form-row">
+            <div class="col-md-6 mb-2">
+                <button [disabled]="isLoaded2D" type="button" (click)="modo2D()">
+                    Modo 2D
+                </button>
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <button [disabled]="isLoaded3D" type="button" (click)="openModal(template)">
+                    Modo 3D
+                </button>
+            </div>
+        </div>
+
+        <div class="col text-center">
+            <button type="button" class="btn btn-dark" (click)="toggleThirdPersonControls()">3ª Pessoa</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left modal-lg">Configurações de Iluminação</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <div>
+            <label>Intensidade da Luz</label>
+            <input [(ngModel)]="intensity" type="range" min="0" max="100" value="0" class="slider">
+            {{intensity}}
+        </div>
+
+        <div>
+            <label>Color da Luz</label>
+            <input [(ngModel)]="ligthColor" type="color" value="0xffffff">
+        </div>
+
+        <label>Direção da Luz</label>
+        <div>
+            <label>X</label>
+            <input [(ngModel)]="dirX" type="range" min="-100" max="100" value="0" class="slider">
+            {{dirX}}
+        </div>
+
+        <div>
+            <label>Y</label>
+            <input [(ngModel)]="dirY" type="range" min="-100" max="100" value="0" class="slider">
+            {{dirY}}
+        </div>
+
+        <div>
+            <label>Z</label>
+            <input [(ngModel)]="dirZ" type="range" min="-100" max="100" value="0" class="slider">
+            {{dirZ}}
+        </div>
+
+
+        <div class="col-md-6 mb-2">
+            <button type="button" (click)="modo3D()">
+                OK
+            </button>
+        </div>
+
+    </div>
+</ng-template>

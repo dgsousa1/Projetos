@@ -1,0 +1,26 @@
+<h2 class="page-header">Listar Serviços de Tripulante</h2>
+
+<table class="table table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Número</th>
+            <th scope="col">Nome do Tripulante</th>
+            <th scope="col">Cor</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Blocos de Trabalho</th>
+            <th scope="col">Duração</th>
+            <th scope="col">Data de Validade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dd of driverDuties">
+            <td>{{dd.mecNumber}}</td>
+            <td>{{dd.driverName}}</td>
+            <td>{{dd.color}}</td>
+            <td>{{dd.type}}</td>
+            <td>{{dd.workBlocks}}</td>
+            <td>{{dd.duration}}</td>
+            <td>{{dd.validDate}}</td>
+        </tr>
+    </tbody>
+</table>

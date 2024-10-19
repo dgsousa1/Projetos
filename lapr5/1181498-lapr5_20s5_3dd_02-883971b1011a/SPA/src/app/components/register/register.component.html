@@ -1,0 +1,122 @@
+<h2 class="page-header">Registar</h2>
+
+<form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Nome de Utilizador</label>
+        <input type="text" name="username" class="form-control" placeholder="Nome de Utilizador"
+            formControlName="username" required>
+    </div>
+
+    <div class="form-group">
+        <label>Palavra-passe</label>
+        <input type="password" name="password" class="form-control" placeholder="Palavra-passe"
+            formControlName="password" required>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Nome</label>
+            <input type="text" name="name" class="form-control" placeholder="Nome" formControlName="name" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="example@email.com"
+                formControlName="email" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>NIF</label>
+            <input type="number" name="nif" class="form-control" placeholder="Número de Identificação Fiscal"
+                formControlName="nif" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>Telefone</label>
+            <input type="number" name="telefone" class="form-control" placeholder="Telefone" formControlName="telephone"
+                required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" formControlName="termos" required>
+            <label class="form-check-label" for="exampleCheck1">
+                <button type="button" class="btn btn-link" (click)="openModal(template)">
+                    Li, comprendi e aceito os termos e condições
+                </button>
+            </label>
+        </div>
+        <button class="btn btn-primary col-md-12" type="submit" [disabled]="!registerForm.valid">Submeter</button>
+    </div>
+</form>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Termos e Condições</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        O Regulamento Geral sobre a Proteção de Dados Pessoais (RGPD), aplicável, desde o dia 25 de maio de 2018,
+        estabelece regras relativas à proteção, tratamento e livre circulação dos dados pessoais das pessoas singulares,
+        mesmo que tenham sido recolhidos antes daquela data, e que se aplica diretamente a todas as entidades que
+        procedam ao tratamento desses dados.
+        Deste modo, terão de ser facultadas as informações aquando do recolhimento dos seus dados pessoais entre as
+        quais:
+        <ul>
+            <li> A identidade e os contactos do responsável pelo tratamento dos dados (Nome: José Manuel dos Santos;
+                Email:
+                jms70@hotmail.com; Telefone: 961247586), sendo este também um gerente afeto à empresa;</li>
+            <li> Os contactos do encarregado da proteção de dados (neste caso não existe devido a este tratamento não
+                tratar de
+                dados em grande escala, e por isso não se achou necessário contratar um);</li>
+            <li> Finalidades e fundamento jurídico para o tratamento (a finalidade foi para gestão de cliente, mais
+                concretamente no registo de informações do mesmo para a empresa em questão, sendo que o fundamento advém
+                do
+                facto do titular dos dados ter dado o seu consentimento livre, explícito, inequívoco e informado);</li>
+            <li> Destinatários ou categorias de destinatários dos dados pessoais (trata-se da própria empresa OPT que
+                vai fazer
+                o recolhimento dos dados e, portanto, eles são o destinatário dos dados pessoais);</li>
+            <li> Se existe intenção de transferir dados pessoais para um país terceiro ou uma organização internacional
+                (não
+                existe intenção de fazer nenhuma das duas coisas, apenas se pretende manter os dados pessoais dentro da
+                própria
+                empresa);</li>
+            <li> Prazo de conservação dos dados pessoais (será feito pelo período necessário e de acordo com as
+                imposições
+                legais, nomeadamente, os prazos de conservação arquivística);</li>
+            <li> Existência do direito de acesso aos seus dados pessoais, bem como a sua retificação ou o seu
+                apagamento, ou do
+                direito de se opor ao tratamento, bem como do direito à portabilidade dos dados (dentro do menu da nossa
+                aplicação é possível ter acesso a todos os seus dados pessoais, a toda a informação descrita neste
+                documento que
+                é de extrema importância para o utilizador estar informado, bem como uma opção que permita o utilizador
+                ter
+                conhecimento do email a quem pode contactar, de modo a que os seus dados sejam apagados);</li>
+            <li> Existência do direito de retirar consentimento em qualquer altura (no menu de registo da nossa
+                aplicação
+                existe uma checkbox em que o utilizador pode retirar o seu consentimento a qualquer altura);</li>
+            <li> Direito de apresentar reclamação a uma autoridade de controlo (a qualquer momento no nosso programa tem
+                acesso
+                ao nosso email afeto à empresa, ao qual pode dispor de qualquer assunto ou reclamação que pretenda);
+            </li>
+            <li> Se a comunicação de dados pessoais constitui ou não uma obrigação legal ou contratual, ou um requisito
+                necessário para celebrar um contrato, bem como se o titular está obrigado a fornecer os dados pessoais e
+                as
+                eventuais consequências de não fornecer esses dados (o titular dos dados não tem nenhuma obrigação legal
+                ou
+                contratual, nem nada se iria passar se ele não fornecesse, pois ele deu o consentimento aquando do
+                recolhimento
+                dos seus dados);</li>
+            <li> A existência de decisões automatizadas, incluindo a definição de perfis (na nossa aplicação não temos
+                nada
+                referente a isso, pois não achámos que houvesse necessidade de incluir tal especificidade).</li>
+        </ul>
+    </div>
+</ng-template>
